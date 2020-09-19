@@ -1,6 +1,9 @@
 % brainlife.io App Template for MatLab code
 %
-% This file is a template for a matlab-based brainlife.io App that simply loads a T1w NIfTI-1 file.
+% This file is a template for a matlab-based brainlife.io App 
+%
+% As example the App simply loads a T1w NIfTI-1 file and resamples it a 1
+% mm isotropic resolution
 %
 % When an App is requested to run on brainlife.io, the platform will do the following:
 % A. Stage the code inside this git repo on a computing resource.
@@ -27,10 +30,27 @@
 %
 % The University of Texas at Austin
 
-% EDIT THE CODE BELOW TO REUSE THIS TEMPLATE
-
 % add submodules (libraries necessary to run some of the code below.
+% submodules added to the GitHub repository for this App will be 
+% automatically downloaded with the App but will need to be explctily 
+% added to the MatLab path. 
+addpath(genpath(pwd))
 
-% load inputs from config.json
+% Load the input T1.nii file the path in config.json
+% This command requires the submodule that allows reading JSON files in
+% MatLab
+config = loadjson('config.json');
+
+% Now we have the name of the T1w file we would like to load. next we use
+% the NIfTI reader/writer toolbox from Jimmy Shen to load it into MatLab
+T1w = load_nii( config.t1 );
+
+% Finally we write as output the same file resliced at 1 mm resolution.
+% This will save out a file called t1w_resliced
+%
+% reslice_nii(old_fn, new_fn, [voxel_size], [verbose], [bg], ...
+%                             [method], [img_idx], [preferredForm]);
+reslice_nii(config.t1, 't1w_resliced',config.outres)
+
 
 	
