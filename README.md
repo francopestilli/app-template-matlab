@@ -5,14 +5,26 @@
 This is a template for a MatLab-based brainlife.io/app
 
 # app-example-documentation
-This is an example of how to write documentation (readme.md and license.md for Apps on brainlife.io)
+This file is a template for a matlab-based brainlife.io App that simply loads a T1w NIfTI-1 file.
 
-Write the following here...
+When an App is requested to run on brainlife.io, the platform will do the following:
+A. Stage the code inside this git repo on a computing resource.
+B. Stage the input data requested to run the App on.
+C. Created a config.json in the same working directory of the App and Data in the computing resource.
 
-1) What the App does, and how it does it at the basic level.
-2) Briefly explain what 1) means for novice users in a language that 1st year psychology student can understand it.
-3) Briefly description of input / output files.
+The config.json file contains the parameters and the path to the input data needed for the App to run. 
+The App paramters are set by the brainlife.io users interface when the App is called and saved inside the config.json
+The input data (a T1w nifti file in this case) is selected by the user during the process of requesting the App on brainlife.io 
+ 
+Running the App on brainlife.io really means "execute this main.m script on a computing resource."
 
+You can also run this App locally by launching the script main.m inside a MatLab prompt. 
+If you want to do that you will need to:
+A. Download the code for this App from https://github.com/francopestilli/app-template-matlab. Save it inside a directory accessible to MatLab, 
+   for examople, /mycomputerpath/myResearch/thisTestApp
+B. Copy a T1w NIfTI-1 file inside the same folder: /mycomputerpath/myResearch/thisTestApp
+C. Create a config.json of your own an example file is provided with this repository. The fields inside the config.json my be set as required
+ 
 ### Authors
 - [Franco Pestilli](pestilli@utexas.edu)
 
@@ -41,47 +53,3 @@ We ask that you the following articles when publishing papers that used data, co
 ### On Brainlife.io
 
 You can submit this App online at [https://doi.org/10.25663/bl.app.1](https://doi.org/10.25663/bl.app.1) via the "Execute" tab.
-
-### Running Locally (on your machine)
-
-1. git clone this repo.
-2. Inside the cloned directory, create `config.json` with something like the following content with paths to your input files.
-
-```json
-{
-  "t1": "./input/track/t1.nii.gz"
-}
-```
-
-3. Launch the App by executing `main`
-
-```bash
-./main
-```
-
-### Sample Datasets
-
-If you don't have your own input file, you can download sample datasets from Brainlife.io, or you can use [Brainlife CLI](https://github.com/brain-life/cli).
-
-```
-npm install -g brainlife
-bl login
-mkdir input
-bl dataset download 5a0e604116e499548135de87 && mv 5a0e604116e499548135de87 input/track
-bl dataset download 5a0dcb1216e499548135dd27 && mv 5a0dcb1216e499548135dd27 input/dtiinit
-```
-
-## Output
-
-All output files will be generated under the current working directory (pwd). The main output of this App is a file called `save_metrics`.
-```
-save_metrics
-```
-
-#### Product.json
-
-The secondary output of this app is `product.json`. This file allows web interfaces, DB and API calls on the results of the processing. 
-
-### Dependencies
-
-This App only requires dipy to run. 
