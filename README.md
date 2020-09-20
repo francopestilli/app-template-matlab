@@ -36,11 +36,12 @@ We ask that you the following articles when publishing papers that used data, co
 1. Avesani, P., McPherson, B., Hayashi, S. et al. The open diffusion data derivatives, brain data upcycling via integrated publishing of derivatives and reproducible open cloud services. Sci Data 6, 69 (2019). [https://doi.org/10.1038/s41597-019-0073-y](https://doi.org/10.1038/s41597-019-0073-y)
 
 ### Local usage for the App:
-You can run this App locally by copying a NIfTI file of a T1w file inside the directory of the file you are reading (the file should be named t1.nii). After that you can invoke this file (main.m) in a matlab prompt and the code will resample the input T1w NIfTI you provided to 1 mm.
+You can run this App locally by copying a NIfTI file of a T1w file inside the directory of the file you are reading (the file should be named t1.nii). After that you can invoke the main.m in a MatLab prompt and the code will resample the input T1w NIfTI you provided to 1 mm.
 
 If you want to change the resolution of the file generated you can edit the appropriate filed inside the config.json.example provide with the github repository you downloaded. The input/output file names of the T1w files can also be changed inside the config.json.example file.
  
 To set up this App to run locally you will need to have done the following:
+
 A. Download the code for this App from https://github.com/francopestilli/app-template-matlab. Save it inside a directory accessible to MatLab, for examople, /mycomputerpath/myResearch/thisTestApp
 
 B. Copy a T1w NIfTI-1 file inside the same folder: /mycomputerpath/myResearch/thisTestApp
