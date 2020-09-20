@@ -4,35 +4,14 @@
 # app-template-MatLab
 This is a template for a MatLab-based brainlife.io/app
 
-# app-example-documentation
-This file is a template for a matlab-based brainlife.io App that simply loads a T1w NIfTI-1 file.
+As example the App simply does the following:
 
-When an App is requested to run on brainlife.io, the platform will do the following:
-
-A. Stage the code inside this git repo on a computing resource.
-
-B. Stage the input data requested to run the App on.
-
-C. Created a config.json in the same working directory of the App and Data in the computing resource.
-
-The config.json file contains the parameters and the path to the input data needed for the App to run. 
-The App paramters are set by the brainlife.io users interface when the App is called and saved inside the config.json
-The input data (a T1w nifti file in this case) is selected by the user during the process of requesting the App on brainlife.io 
+(1) loads a T1w NIfTI-1 file, 
+(2) sets a new resolution to resampole the file to
+(3) resamples it a 1mm isotropic resolution, and 
+(4) saves the new NIfTI file down to disk in the current directory
  
-Running the App on brainlife.io really means "execute this main.m script on a computing resource."
-
-You can also run this App locally by launching the script main.m inside a MatLab prompt. 
-
-If you want to do that you will need to:
-
-A. Download the code for this App from https://github.com/francopestilli/app-template-matlab. Save it inside a directory accessible to MatLab, 
-   for examople, /mycomputerpath/myResearch/thisTestApp
-
-B. Copy a T1w NIfTI-1 file inside the same folder: /mycomputerpath/myResearch/thisTestApp
-
-C. Create a config.json of your own an example file is provided with this repository. The fields inside the config.json my be set as required
- 
-### Authors
+### Author
 - [Franco Pestilli](pestilli@utexas.edu)
 
 ### Contributors
@@ -54,9 +33,30 @@ We ask that you the following articles when publishing papers that used data, co
 
 1. Avesani, P., McPherson, B., Hayashi, S. et al. The open diffusion data derivatives, brain data upcycling via integrated publishing of derivatives and reproducible open cloud services. Sci Data 6, 69 (2019). [https://doi.org/10.1038/s41597-019-0073-y](https://doi.org/10.1038/s41597-019-0073-y)
 
+### Local usage for the App:**
+You can run this App locally by copying a NIfTI file of a T1w file inside the directory of the file you are reading (the file should be named t1.nii). After that you can invoke this file (main.m) in a matlab prompt and the code will resample the input T1w NIfTI you provided to 1 mm.
 
-## Running the App 
+If you want to change the resolution of the file generated you can edit the appropriate filed inside the config.json.example provide with the github repository you downloaded. The input/output file names of the T1w files can also be changed inside the config.json.example file.
+ 
+To set up this App to run locally you will need to have done the following:
+A. Download the code for this App from https://github.com/francopestilli/app-template-matlab. Save it inside a directory accessible to MatLab, for examople, /mycomputerpath/myResearch/thisTestApp
 
-### On Brainlife.io
+B. Copy a T1w NIfTI-1 file inside the same folder: /mycomputerpath/myResearch/thisTestApp
+
+C. Create a config.json of your own an example file is provided with this repository. The fields inside the config.json my be set as required
+
+### Usage of the App on brainlife.io
+
+When an App is requested to run on brainlife.io, the platform will do the following:
+
+A. Stage the code inside this git repo on a computing resource.
+
+B. Stage the input data requested to run the App on.
+
+C. Created a config.json in the same working directory of the App and Data in the computing resource.
+
+The config.json file contains the parameters and the path to the input data needed for the App to run. The App paramters are set by the brainlife.io users interface when the App is called and saved inside the config.json. The input data (a T1w nifti file in this case) is selected by the user during the process of requesting the App on brainlife.io 
+
+Running the App on brainlife.io really means "execute this main.m script on a computing resource." 
 
 You can submit this App online at [https://doi.org/10.25663/bl.app.1](https://doi.org/10.25663/bl.app.1) via the "Execute" tab.
