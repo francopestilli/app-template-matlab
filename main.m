@@ -36,21 +36,36 @@
 % added to the MatLab path. 
 addpath(genpath(pwd))
 
-% Load the input T1.nii file the path in config.json
-% This command requires the submodule that allows reading JSON files in
-% MatLab
-config = loadjson('config.json');
-
-% Now we have the name of the T1w file we would like to load. next we use
-% the NIfTI reader/writer toolbox from Jimmy Shen to load it into MatLab
-T1w = load_nii( config.t1 );
-
-% Finally we write as output the same file resliced at 1 mm resolution.
-% This will save out a file called t1w_resliced
+% We load the inputs from an example config.json (actually called
+% config.json.example)
+% 
+% The example config.json,example files contains three fields:
+% - the inout file name
+% - a parameter specifiying the resolution of the output NIfTI file
+% - the file name of the output NIfTI that will be writtn to disk
 %
-% reslice_nii(old_fn, new_fn, [voxel_size], [verbose], [bg], ...
-%                             [method], [img_idx], [preferredForm]);
-reslice_nii(config.t1, 't1w_resliced',config.outres)
+% Note. This command requires the submodule that allows reading JSON files in
+% MatLab
+config = loadjson('config.json.example');
+
+% We now pass the inputs and outputs read in from the config.json file into
+% the function that will load the T1w file, reslice it and write out the new
+% resliced file at 1 mm resolution.
+%
+% This will save out in the current directoryh a file called "T1w_resliced1mm.nii"
+% because that is the file name stored in config.outname
+reslice_nii(config.t1, ...
+            config.outname, ...
+            config.outres, ...
+            true, true, 2)
+        
+% reslice usage:
+% reslice_nii(old_fn, ...
+%             new_fn, ...
+%             [voxel_size], ...
+%             [verbose], .... 
+%             [bg], ...
+%             [method], [img_idx], [preferredForm]);
 
 
 	
