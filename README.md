@@ -8,8 +8,8 @@ As example the App simply does the following:
 
 <ol>
 <li>Loads a T1w NIfTI-1 file.</li>
-<li>Sets a new resolution to resample the file to.</li>
-<li>Resamples it a 1mm isotropic resolution.</li>
+<li>Sets a new resolution for the file.</li>
+<li>Resamples the file to 1 mm isotropic resolution.</li>
 <li>Saves the new NIfTI file down to disk in the current directory.</li>
 </ol>
  
