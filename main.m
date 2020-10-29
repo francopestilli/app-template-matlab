@@ -4,9 +4,8 @@
 %
 % As example the App simply does the following:
 % (1) loads a T1w NIfTI-1 file, 
-% (2) sets a new resolution to resampole the file to
-% (3) resamples it a 1mm isotropic resolution, and 
-% (4) saves the new NIfTI file down to disk in the current directory
+% (2) sets a new resolution and resample the file to 1 mm isotropic resolution 
+% (3) saves the new NIfTI file down to disk in the current directory
 % 
 % **Local usage for the App:**
 % You can run this App locally by copying a NIfTI file of a T1w file inside
