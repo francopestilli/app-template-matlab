@@ -10,8 +10,5 @@
 #
 # Author: Franco Pestilli
 
-# parse config.json to load the input parameters needed for the app
-t1=$(jq -r .t1 config.json)
-
 # run the actual MatLab code
 ./main.m $t1
