@@ -11,4 +11,4 @@
 # Author: Franco Pestilli
 
 # run the actual MatLab code
-./main.m $t1
+./main.m
