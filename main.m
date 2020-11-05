@@ -59,7 +59,7 @@ addpath(genpath(pwd))
 %
 % Note. This command requires the submodule that allows reading JSON files in
 % MatLab
-config = loadjson('config.json.example');
+config = loadjson('config.json');
 
 % We now pass the inputs and outputs read in from the config.json file into
 % the function that will load the T1w file, reslice it and write out the new
